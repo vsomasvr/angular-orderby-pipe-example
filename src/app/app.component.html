@@ -1,0 +1,74 @@
+<h2>Angular orderBy pipe Demo</h2>
+
+<p>
+  <span style="font-size:24px; opacity:.6">Order an array of strings</span>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Names</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let model of laptopModelNames| orderBy">
+    <td>
+      {{model}}
+    </td>
+  </tr>
+
+</table>
+
+<p>
+  <span style="font-size:24px; opacity:.6">Order an array of objects</span>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Brand (sorted)</th>
+      <th>MFG Year</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let laptop of laptops| orderBy:'brand':'desc'">
+    <td>
+      {{laptop.model}}
+    </td>
+    <td>
+      {{laptop.brand}}
+    </td>
+    <td>
+      {{laptop.mfgYear}}
+    </td>
+  </tr>
+</table>
+
+<p>
+  <span style="font-size:24px; opacity:.6">Order an array of objects with nested object</span>
+</p>
+<table width="100%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>MFG Year</th>
+      <th>Processor</th>
+      <th>RAM(sorted)</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let laptop of laptopsWithConfig| orderBy:'config.memory'">
+    <td>
+      {{laptop.model}}
+    </td>
+    <td>
+      {{laptop.brand}}
+    </td>
+    <td>
+      {{laptop.mfgYear}}
+    </td>
+    <td>
+      {{laptop.config.processor}}
+    </td>
+    <td>
+      {{laptop.config.memory}}
+    </td>
+  </tr>
+</table>
